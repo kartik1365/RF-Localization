@@ -7,7 +7,7 @@ class Inverse_sq_reg():
 	def __init__(self):
 		self.a = 1
 		self.b = 1
-		self.n = 0 # Needs to be changed
+		self.n = 0 # Number of training Samples
 
 	def get_errors(self):
 		"""
@@ -35,22 +35,22 @@ class Inverse_sq_reg():
 		"""
 		return -2 * self.errors.sum() / self.n
 
-	def train(self, x: np.array, y: np.array)-> None:
-
+	def train(self, x: np.array, y: np.array, n_iter: int = 1000, threshold = None) -> None:
+		"""
+		Updates the gradients till the error minimises or till the number of iterations are finished
+		"""
 		assert(len(x) == len(y))
 		self.x = x
 		self.y = y
 		self.n = len(x)
-		self.n_iter = 1000
 		self.loss_values = []
-		self.threshold = None
 		self.gamma = 1e-2
 
-		for i in range(self.n_iter):
+		for i in range(n_iter):
 			self.get_errors()
 			current_loss = self.loss()
 			self.loss_values.append(current_loss)
-			if self.threshold and current_loss < self.threshold:
+			if threshold and current_loss < threshold:
 				break
 			grad_a = self.gradient_a()
 			grad_b = self.gradient_b()
@@ -60,7 +60,7 @@ class Inverse_sq_reg():
 
 		print(f"a: {self.a} and b: {self.b}")
 		fig, ax = plt.subplots()
-		ax.plot(list(range(self.n_iter)), self.loss_values)
+		ax.plot(list(range(n_iter)), self.loss_values)
 		ax.grid()
 		ax.set_title("Loss vs iterations")
 
