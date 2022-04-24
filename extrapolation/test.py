@@ -1,3 +1,4 @@
+# from cmath import log
 import matplotlib.pyplot as plt
 import numpy as np
 from typing import List
@@ -13,7 +14,7 @@ class Inverse_sq_reg():
 		"""
 		Creates the error vector
 		"""
-		self.y_hat = self.a / self.x**2 + self.b
+		self.y_hat = self.a * np.log(self.x) + self.b
 		self.errors = self.y - self.y_hat
 
 	def loss(self):
@@ -26,7 +27,7 @@ class Inverse_sq_reg():
 		"""
 		Calculates the gradient of a and returns it
 		"""
-		temp1 = (self.errors / (self.x ** 2)).sum()
+		temp1 = (self.errors*np.log(self.x)).sum()
 		return -2 * temp1 / self.n
 
 	def gradient_b(self):
@@ -66,17 +67,17 @@ class Inverse_sq_reg():
 
 	def predict(self, x: np.array) -> None:
 
-		return (self.a / x ** 2) + self.b
+		return (self.a * np.log(x)) + self.b
 
 def main():
-	# Generate n = 100 training points (x, y). y = a/x**2 + b, where a = 2 and b = 1, add some noise to it
+	# Generate n = 100 training points (x, y). y = a*logx + b, where a = 2 and b = 1, add some noise to it
 	n = 100
 	start = 0.5
 	end = 1
 	x = np.linspace(start, end, n)
 	a = 2
 	b = 1
-	y = a / x**2 + b
+	y = a*np.log(x) + b
 	y_t = y + np.random.normal(0, 0.5, n)
 	# Train the data 
 	model = Inverse_sq_reg()
