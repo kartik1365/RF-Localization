@@ -1,5 +1,5 @@
 body{
-    background-color: coral;
+    background-color:#78aadf;
     margin: 0;
     padding: 0;
 }
@@ -11,22 +11,29 @@ body{
     font-size: 1.6rem;
     font-family: 'Lato', cursive;
     font-weight: 400;
-    
-}
-
-.navbar > p {
-    /* background-color: deeppink; */
-    color: #8ebef1;
-    padding: 20px;
     padding-left: 50px;
     padding-right: 50px;
     
 }
 
-.navbar > p:hover {
+.navbar > a {
+    /* background-color: deeppink; */
+    color: #8ebef1;
+    padding-left: 50px;
+    padding-right: 50px;
+    /* padding: 10px;
+    padding-left: 50px;
+    padding-right: 50px; */
+    
+}
+
+.navbar > a:hover {
     background-color:#25486d;
     cursor: pointer;
     border-radius: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    font-size: 1.8rem;
     
 }
 
@@ -64,4 +71,29 @@ body{
 
 a {
     text-decoration: none;
+}
+
+.selectalgo{
+    background-color:#78aadf;
+    display: flex;
+    justify-content: space-around;
+    min-height: 90vh;
+}
+
+button{
+    background-color:#25486d; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 50px;
+    height: fit-content;
+    border-radius: 10px;
+}
+
+button:hover {
+    font-size: 1.2rem;
 }

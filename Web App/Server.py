@@ -3,7 +3,6 @@ import helper
 from flask import Flask, request, render_template, redirect, url_for, jsonify
 
 
-a = b = c = d = 0
 app = Flask(__name__)
 
 @app.route("/")  
@@ -33,12 +32,9 @@ def Localize():
 
 @app.route("/RSSI")
 def RSSI():
-    global a, b, c, d
-    a+=1
-    b+=2
-    c+=3
-    d+=4
-    return "Workin on it"
+        return render_template("rssi.html")
+
+
 
 @app.route("/getData", methods = ["GET"])
 def getData():
