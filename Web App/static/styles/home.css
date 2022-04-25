@@ -11,22 +11,29 @@ body{
     font-size: 1.6rem;
     font-family: 'Lato', cursive;
     font-weight: 400;
-    
-}
-
-.navbar > p {
-    /* background-color: deeppink; */
-    color: #8ebef1;
-    padding: 20px;
     padding-left: 50px;
     padding-right: 50px;
     
 }
 
-.navbar > p:hover {
+.navbar > a {
+    /* background-color: deeppink; */
+    color: #8ebef1;
+    padding-left: 50px;
+    padding-right: 50px;
+    /* padding: 10px;
+    padding-left: 50px;
+    padding-right: 50px; */
+    
+}
+
+.navbar > a:hover {
     background-color:#25486d;
     cursor: pointer;
     border-radius: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    font-size: 1.8rem;
     
 }
 
@@ -62,6 +69,10 @@ body{
   
 }
 
+p{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 a {
     text-decoration: none;
 }
