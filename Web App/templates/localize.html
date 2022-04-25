@@ -11,11 +11,11 @@
       href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Overpass&family=Roboto+Mono:ital,wght@1,700&display=swap"
       rel="stylesheet"
     />
-    {% if {{algo}} == "Trilateration" %}
+    {% if algo == "trilateration" %}
     <script src = "{{ url_for('static', filename='trilateration.js') }}"></script>
-    {% else %}
+    {% elif algo == "min-max" %}
     <script src = "{{ url_for('static', filename='min-max.js') }}"></script>
-    {% end if %}
+    {% endif %}
   </head>
 
   <body>
@@ -23,12 +23,12 @@
     <form method = "POST">
     <nav class="navbar">
       <a href = "/"> <p type = "submit" name = "home" >Home</p></a>
-      <button type = "submit" name = "algo" value = "Trilateration">Trilateration</button>
-      <button type = "submit" name = "algo" value = "Min-Max" >Min-Max</button>
+      <button type = "submit" name = "algo" value = "trilateration">Trilateration</button>
+      <button type = "submit" name = "algo" value = "min-max" >Min-Max</button>
     </nav>
     </form>
     
-    <p id="demo">Initiating...</p>
+    <p id="demo">{{algo}} Initiating...</p>
 
     <footer class="footer">made by abhigyan , rohan, abhishek, kartik</footer>
 

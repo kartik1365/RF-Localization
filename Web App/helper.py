@@ -39,5 +39,3 @@ def getPosition():
     counter1 += 1
     counter2 += 1
     counter3 += 1
-
-    triliteration

@@ -21,13 +21,11 @@ def home():
 @app.route("/Localize", methods = ["GET", "POST"])
 def Localize():
     
-    if "Trilateration" in request.form:
-        algo = "trilateration"
-    elif "Min-Max" in request.form:
-        algo = "min-max"
+    if request.form:
+        algo = request.form["algo"]
     else:
         algo = "trilateration"
-   
+    print(algo)
     return render_template("localize.html", algo = algo)
 
 @app.route("/RSSI")
