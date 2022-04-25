@@ -4,37 +4,36 @@
   <head>
     <title>RF Localisation</title>
 
-    <link rel="stylesheet" href="{{ url_for('static',filename='styles/home.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/localize.css') }}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Overpass&family=Roboto+Mono:ital,wght@1,700&display=swap"
       rel="stylesheet"
     />
+    {% if {{algo}} == "Trilateration" %}
+    <script src = "{{ url_for('static', filename='trilateration.js') }}"></script>
+    {% else %}
+    <script src = "{{ url_for('static', filename='min-max.js') }}"></script>
+    {% end if %}
   </head>
 
   <body>
-    <!-- your content here... -->
-    <!-- <script src="js/scripts.js"></script> -->
+    
+    <form method = "POST">
     <nav class="navbar">
       <a href = "/"> <p type = "submit" name = "home" >Home</p></a>
-      <a href = "Localize"> <p type = "submit" name = "localize">Localise</p></a>
-      <a href = "RSSI"><p type = "submit" name = "rssi" >RSSI</p></a>
-      
+      <button type = "submit" name = "algo" value = "Trilateration">Trilateration</button>
+      <button type = "submit" name = "algo" value = "Min-Max" >Min-Max</button>
     </nav>
-
-    <div class="content">
-      <div class="text">
-        <h1>RF Localisation</h1>
-        <h2>uses </h2>
-        <p></p>
-      </div>
-      <img
-        class="image"
-        src="https://drive.google.com/uc?export=view&id=1LUum07qqP2HxYUu1roO2UtKvNBOzPHZr"
-      />
-    </div>
+    </form>
+    
+    <p id="demo">Initiating...</p>
 
     <footer class="footer">made by abhigyan , rohan, abhishek, kartik</footer>
+
   </body>
+
 </html>
+
+
