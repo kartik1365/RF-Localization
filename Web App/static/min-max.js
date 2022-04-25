@@ -7,16 +7,16 @@ function myTimer()
     .then(data => handleData(data))
 }
 
-
 function handleData(myData)
 {
     if(myData.check === true)
     {
-        plotData();
+        document.getElementById().innerHTML = myData.d1;
+        // getTrilateration(myData);
     }
     else 
     {
-        //Display error
+        document.getElementById().innerHTML = "Not enough values...Waiting...";
     }
 }
 

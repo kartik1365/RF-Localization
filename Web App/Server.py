@@ -1,7 +1,5 @@
-from crypt import methods
-import helper
+from helper import *
 from flask import Flask, request, render_template, redirect, url_for, jsonify
-
 
 app = Flask(__name__)
 
@@ -9,16 +7,15 @@ app = Flask(__name__)
 def home():
     return render_template("home.html")
     
-# @app.route("/query", , methods = ["GET", "POST"])
-# def query():
-#     rssi_received = request.args.get('RSSI')
-#     anchor_num = request.args.get('Anchor')
-#     cnt = request.args.get('Counter')
+@app.route("/queryNode", methods = ["GET", "POST"])
+def query():
+    content = request.get_json()
 
-#     updateArr(rssi_received, anchor_num, cnt)
-#     getPosition()
-
-#     return '''<h1>RSSI measured from </h1>'''
+    rssi_received = content["rssi_val"]
+    anchor_num = content["anchor_num"]
+    updateArr(rssi_received, anchor_num)
+    
+    return 'JSON posted'
 
 @app.route("/Localize", methods = ["GET", "POST"])
 def Localize():
@@ -34,20 +31,19 @@ def Localize():
 def RSSI():
         return render_template("rssi.html")
 
-
-
 @app.route("/getData", methods = ["GET"])
 def getData():
     
     is_possibe = True
-    if len(rssi_anchor1) - 1 < counter or len(rssi_anchor2) - 1 < counter or len(rssi_anchor3) - 1 < counter:
+    # if len(rssi_anchor1) < 6 or len(rssi_anchor2) < 6 or len(rssi_anchor3) < 6:
+    #     is_possible = False
+    if len(rssi_anchor1) < 6:
         is_possible = False
-
-    dis1 = dis_anchor1[counter]
-    dis2 = dis_anchor2[counter]
-    dis3 = dis_anchor3[counter]
-    counter += 1
-
+    # ptr = min(len(dis_anchor1), len(dis_anchor2), len(dis_anchor3)) - 1
+    ptr = len(dis_anchor1)
+    dis1 = dis_anchor1[ptr - 4 : ptr + 1]
+    # dis2 = dis_anchor2[ptr - 4 : ptr + 1]
+    # dis3 = dis_anchor3[ptr - 4 : ptr + 1]
     
     data = {'check': is_possibe,
     'x1' : pos_anchor1[0], 
@@ -57,11 +53,10 @@ def getData():
     'x3' : pos_anchor3[0], 
     'y3' : pos_anchor3[1],
     'd1' : dis1, 
-    'd2' : dis2, 
-    'd3' : dis3}
+    'd2' : 1, 
+    'd3' : 1}
     
-    return jsonify(data)
-    
+    return jsonify(data)   
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0")
