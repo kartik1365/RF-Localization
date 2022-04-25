@@ -1,9 +1,23 @@
 setInterval(myTimer, 1000);
 
-function myTimer() {
+function myTimer() 
+{
     fetch('/getData')
     .then(response => response.json())
-    .then(data => document.getElementById("demo").innerHTML = 1111);
+    .then(data => handleData(data))
+}
+
+
+function handleData(myData)
+{
+    if(myData.check === true)
+    {
+        getTrilateration(myData);
+    }
+    else 
+    {
+        
+    }
 }
 
 

@@ -6,7 +6,7 @@ pos_anchor3 = [1, 1]
 
 rssi_anchor1 = rssi_anchor2 = rssi_anchor3 = []
 dis_anchor1 = dis_anchor2 = dis_anchor3 = []
-counter1 = counter2 = counter3 = 0
+counter = 0
 
 pos_object = []
 
@@ -27,15 +27,3 @@ def updateArr(rssi_received, anchor_num, cnt):
     if anchor_num == 3:
         rssi_anchor3.append(rssi_received)
         dis_anchor3.append(dist_received) 
-    
-def getPosition():
-    
-    if len(rssi_anchor1) - 1 < counter1 or len(rssi_anchor2) - 1 < counter2 or len(rssi_anchor3) - 1 < counter3:
-        return
-    
-    dis1 = dis_anchor1[counter1]
-    dis2 = dis_anchor2[counter2]
-    dis3 = dis_anchor3[counter3]
-    counter1 += 1
-    counter2 += 1
-    counter3 += 1
