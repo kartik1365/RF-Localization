@@ -8,42 +8,60 @@ def home():
     return render_template("home.html")
     
 @app.route("/queryNode", methods = ["GET", "POST"])
-def query():
+def queryNode():
+    global items, counter, rssi_anchor1, rssi_anchor2, rssi_anchor3, dis_anchor1, dis_anchor2, dis_anchor3
     content = request.get_json()
 
-    rssi_received = content["rssi_val"]
-    anchor_num = content["anchor_num"]
-    updateArr(rssi_received, anchor_num)
-    
+    updateArr(content["rssi_val"],content["anchor_num"])
+    print("NODE = ", content["anchor_num"])
+    print("RSSI = ", content["rssi_val"])
+    print("\n\n")
+    if min(len(dis_anchor1), len(dis_anchor2), len(dis_anchor3)) - 1 >= counter:
+        new_item = dict(sno = counter, 
+                        rssi1 = rssi_anchor1[counter], 
+                        rssi2 = rssi_anchor2[counter], 
+                        rssi3 = rssi_anchor3[counter], 
+                        dis1 = dis_anchor1[counter],
+                        dis2 = dis_anchor2[counter],
+                        dis3 = dis_anchor3[counter])
+        items.append(new_item)
+        counter += 1
+
     return 'JSON posted'
 
 @app.route("/Localize", methods = ["GET", "POST"])
 def Localize():
-    
+    global rssi_anchor1, rssi_anchor2, rssi_anchor3
+    print(rssi_anchor1)
+    print(rssi_anchor2)
+    print(rssi_anchor3)
+
     if request.form:
         algo = request.form["algo"]
     else:
         algo = "trilateration"
-    print(algo)
+
     return render_template("localize.html", algo = algo)
 
 @app.route("/RSSI")
 def RSSI():
-        return render_template("rssi.html")
+    global items
+    return render_template("rssi.html", items = items)
 
 @app.route("/getData", methods = ["GET"])
 def getData():
     
+    global pos_anchor1, pos_anchor2, pos_anchor3, dis_anchor1, dis_anchor2, dis_anchor3
+    
     is_possibe = True
-    # if len(rssi_anchor1) < 6 or len(rssi_anchor2) < 6 or len(rssi_anchor3) < 6:
-    #     is_possible = False
-    if len(rssi_anchor1) < 6:
+    if len(rssi_anchor1) < 6 or len(rssi_anchor2) < 6 or len(rssi_anchor3) < 6:
         is_possible = False
-    # ptr = min(len(dis_anchor1), len(dis_anchor2), len(dis_anchor3)) - 1
-    ptr = len(dis_anchor1)
+  
+    ptr = min(len(dis_anchor1), len(dis_anchor2), len(dis_anchor3)) - 1
+
     dis1 = dis_anchor1[ptr - 4 : ptr + 1]
-    # dis2 = dis_anchor2[ptr - 4 : ptr + 1]
-    # dis3 = dis_anchor3[ptr - 4 : ptr + 1]
+    dis2 = dis_anchor2[ptr - 4 : ptr + 1]
+    dis3 = dis_anchor3[ptr - 4 : ptr + 1]
     
     data = {'check': is_possibe,
     'x1' : pos_anchor1[0], 
@@ -53,8 +71,8 @@ def getData():
     'x3' : pos_anchor3[0], 
     'y3' : pos_anchor3[1],
     'd1' : dis1, 
-    'd2' : 1, 
-    'd3' : 1}
+    'd2' : dis2, 
+    'd3' : dis3}
     
     return jsonify(data)   
 

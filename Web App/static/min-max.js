@@ -11,7 +11,7 @@ function handleData(myData)
 {
     if(myData.check === true)
     {
-        document.getElementById().innerHTML = myData.d1;
+        document.getElementById('demo').innerHTML = myData.d1;
         // getTrilateration(myData);
     }
     else 
