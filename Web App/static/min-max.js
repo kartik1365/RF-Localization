@@ -23,10 +23,8 @@ class Rectangle {
 
 }
 
-function euclidean_distance(x1, y1, x2, y2){
-
-	return Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2))
-
+function getEucledianDistance(pt1, pt2) {
+    return Math.sqrt(Math.pow(pt1[0] - pt2[0], 2) + Math.pow(pt1[1] - pt2[1], 2));
 }
 
 function get_intersection(r1, r2){
@@ -77,7 +75,7 @@ function handleData(myData)
     if(myData.check === true)
     {
         document.getElementById('demo').innerHTML = myData.d1;
-        let pos = min_max_calc(myData);
+        let posMinMax = min_max_calc(myData);
     }
     else 
     {
