@@ -54,14 +54,14 @@ def getData():
     global pos_anchor1, pos_anchor2, pos_anchor3, dis_anchor1, dis_anchor2, dis_anchor3
     
     is_possibe = True
-    if len(rssi_anchor1) < 6 or len(rssi_anchor2) < 6 or len(rssi_anchor3) < 6:
+    if len(rssi_anchor1) < 1 or len(rssi_anchor2) < 1 or len(rssi_anchor3) < 1:
         is_possible = False
   
     ptr = min(len(dis_anchor1), len(dis_anchor2), len(dis_anchor3)) - 1
 
-    dis1 = dis_anchor1[ptr - 4 : ptr + 1]
-    dis2 = dis_anchor2[ptr - 4 : ptr + 1]
-    dis3 = dis_anchor3[ptr - 4 : ptr + 1]
+    dis1 = dis_anchor1[ptr]
+    dis2 = dis_anchor2[ptr]
+    dis3 = dis_anchor3[ptr]
     
     data = {'check': is_possibe,
     'x1' : pos_anchor1[0], 

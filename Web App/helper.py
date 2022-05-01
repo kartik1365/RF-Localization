@@ -1,7 +1,8 @@
 import numpy as np
 
-a = 1
-b = 1
+a = -12.08
+b = 5.01
+
 pos_anchor1 = [1, 1]
 pos_anchor2 = [1, 1]
 pos_anchor3 = [1, 1]
@@ -16,7 +17,7 @@ counter = 0
 items = []
 
 def distance_to_rssi(x):
-    est_dis = 10**((x-b)/a)
+    est_dis = np.e**((x-b)/a)
     return est_dis
 
 def updateArr(rssi_received, anchor_num):
