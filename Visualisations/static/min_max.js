@@ -1,12 +1,3 @@
-setInterval(myTimer, 1000);
-
-function myTimer() 
-{
-    fetch('/getData')
-    .then(response => response.json())
-    .then(data => handleData(data))
-}
-
 class Rectangle {
 
 	constructor(xmin, ymin, xmax, ymax){
@@ -18,7 +9,7 @@ class Rectangle {
 	
 	print_coords(){
 		console.log("Left bottom is: ", this.xmin, ", ", this.ymin);
-		console.log("Right top is: ",this.xmax, ", ", this.ymax);
+		console.log("Right top is: ", this.xmax, ", ", this.ymax);
 	}
 
 }
@@ -65,24 +56,30 @@ function min_max_calc(myData){
 	r1 = get_intersection(rectangles[0], rectangles[1]);
 	r_final = get_intersection(rectangles[2], r1);
 	r_final.print_coords();
-    
-    ans = [0, 0]
-    ans[0] = (r_final.xmin + r_final.xmax / 2);
-    ans[1] = (r_final.ymin + r_final.ymax / 2);
-    return ans;
+
 }
 
-function handleData(myData)
-{
-    if(myData.check === true)
-    {
-        document.getElementById('demo').innerHTML = myData.d1;
-        let pos = min_max_calc(myData);
-    }
-    else 
-    {
-        document.getElementById().innerHTML = "Not enough values...Waiting...";
-    }
+function handleData(){
+
+	let x = 0.5
+	let y = 0.5
+	console.log("My dummy point is ", x, ", ", y);
+
+	let myData = {
+		x1: 0,
+		y1: 0,
+		x2: 1,
+		y2: 0,
+		x3: 0.5,
+		y3: 1
+	}
+	myData.d1 = euclidean_distance(myData.x1, myData.y1, x, y)
+	myData.d2 = euclidean_distance(myData.x2, myData.y2, x, y)
+	myData.d3 = euclidean_distance(myData.x3, myData.y3, x, y)
+	console.log(myData)
+	result_rect = min_max_calc(myData)
+
 }
 
-
+console.log("Javascript was called");
+handleData()
