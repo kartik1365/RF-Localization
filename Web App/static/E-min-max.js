@@ -49,7 +49,7 @@ function ExtendedMinMax(myData) {
     let W = [W1, W2, W3, W4], ans;
 
     for (let a = 0; a < 4; a++) {
-        let weighted_sum = 0, total_sum = 0;
+        let weighted_sum_x = 0, weighted_sum_y = 0, total_sum = 0;
         for (let j = 0; j < 4; j++) {
             weighted_sum_x += W[a][j] * P[j][0];
             weighted_sum_y += W[a][j] * P[j][1];
