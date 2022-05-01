@@ -6,13 +6,13 @@ function myTimer() {
         .then(data => handleData(data))
 }
 
-function get_distance(pt1, pt2) {
+function getEucledianDistance(pt1, pt2) {
     return Math.sqrt(Math.pow(pt1[0] - pt2[0], 2) + Math.pow(pt1[1] - pt2[1], 2));
 }
 
 function point_lies_on_circle(center, r, point) {
     let epsilon = 0.001;
-    if (Math.abs(get_distance(point, center) - r) < epsilon)
+    if (Math.abs(getEucledianDistance(point, center) - r) < epsilon)
         return true;
     return false
 }

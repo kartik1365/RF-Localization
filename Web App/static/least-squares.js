@@ -6,31 +6,6 @@ function myTimer() {
         .then(data => handleData(data))
 }
 
-function multiplyMatrices(m1, m2) {
-    var result = [];
-    for (var i = 0; i < m1.length; i++) {
-        result[i] = [];
-        for (var j = 0; j < m2[0].length; j++) {
-            var sum = 0;
-            for (var k = 0; k < m1[0].length; k++) {
-                sum += m1[i][k] * m2[k][j];
-            }
-            result[i][j] = sum;
-        }
-    }
-    return result;
-}
-
-function transpose(matrix) {
-    for (var i = 0; i < matrix.length; i++) {
-        for (var j = 0; j < i; j++) {
-            const temp = matrix[i][j];
-            matrix[i][j] = matrix[j][i];
-            matrix[j][i] = temp;
-        }
-    }
-}
-
 function getLeastSquares(myData) {
     x1 = myData.x1;
     y1 = myData.y1;
