@@ -15,6 +15,18 @@ body{
     padding-right: 50px;
     
 }
+.navbar2{
+    background-color:#25486d;
+    display: flex;
+    justify-content:space-evenly;
+    font-size: 1.6rem;
+    font-family: 'Lato', cursive;
+    font-weight: 400;
+    padding-left: 50px;
+    padding-right: 50px;
+    
+}
+
 
 .navbar > a {
     /* background-color: deeppink; */
