@@ -130,3 +130,8 @@ button{
 button:hover {
     font-size: 1.2rem;
 }
+
+canvas {
+    border: 2px solid black;
+    background-color:white; 
+}

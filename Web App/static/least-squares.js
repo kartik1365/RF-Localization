@@ -1,30 +1,20 @@
+import { Chart } from './node_modules/chart.js/dist/chart.js';
+
 function leastSquares(myData) {
-    x1 = myData.x1;
-    y1 = myData.y1;
-    x2 = myData.x2;
-    y2 = myData.y2;
-    x3 = myData.x3;
-    y3 = myData.y3;
-    d1 = myData.d1;
-    d2 = myData.d2;
-    d3 = myData.d3;
 
-    const A = [
-        [2 * (x3 - x1), 2 * (y3 - y1)],
-        [2 * (x3 - x2), 2 * (y3 - y2)]
-    ];
-    
-    const b = [
-        [Math.pow(d1 - d3, 2) - Math.pow(x1 - x3, 2) - Math.pow(y1 - y3, 2)],
-        [Math.pow(d2 - d3, 2) - Math.pow(x2 - x3, 2) - Math.pow(y2 - y3, 2)]
-    ];
+    let x1 = myData.x1;
+    let y1 = myData.y1;
+    let x2 = myData.x2;
+    let y2 = myData.y2;
+    let x3 = myData.x3;
+    let y3 = myData.y3;
+    let d1 = myData.d1;
+    let d2 = myData.d2;
+    let d3 = myData.d3;
 
-    const At = math.transpose(A);
-    const A_At = math.multiply(At, A);
-    const A_At_inv = math.inv(A_At);
+    let a = x3, b = x1, c = x2, x = y3, y = y1, z = y2;
 
-    const ans = math.multiply(A_At_inv, At, b);
-    
-    return ans;
 }
+
+export { leastSquares };
 

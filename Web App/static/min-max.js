@@ -1,3 +1,5 @@
+var PLOT_HEIGHT = 500, PLOT_WIDTH = 500;
+
 class Rectangle {
 
 	constructor(xmin, ymin, xmax, ymax){
@@ -14,16 +16,26 @@ class Rectangle {
 
 }
 
-function getEucledianDistance(pt1, pt2) {
-    return Math.sqrt(Math.pow(pt1[0] - pt2[0], 2) + Math.pow(pt1[1] - pt2[1], 2));
+
+function plotMinMax(centers, distances, ans) {
+    var c = document.getElementById("plotMinMax");
+    c.width = PLOT_WIDTH;
+    c.height = PLOT_HEIGHT;
+
+    var ctx = c.getContext("2d");
+    ctx.transform(1, 0, 0, -1, c.width / 2, c.height / 2);
+
+	//
+
+	//
 }
 
 function get_intersection(r1, r2){
 
-	x1 = Math.max(r1.xmin, r2.xmin);
-	y1 = Math.max(r1.ymin, r2.ymin);
-	x2 = Math.min(r1.xmax, r2.xmax);
-	y2 = Math.min(r1.ymax, r2.ymax);
+	let x1 = Math.max(r1.xmin, r2.xmin);
+	let y1 = Math.max(r1.ymin, r2.ymin);
+	let x2 = Math.min(r1.xmax, r2.xmax);
+	let y2 = Math.min(r1.ymax, r2.ymax);
 
 	console.assert(x1 <= x2);
 	console.assert(y1 <= y2);
@@ -44,20 +56,24 @@ function minMax(myData){
 	let len2 = distances.length;
 	console.assert(len1 == len2);
 	for(let i = 0; i < len1; i++){
-		center = centers[i];
-		distance = distances[i];
+		let center = centers[i];
+		let distance = distances[i];
 		let r = new Rectangle(center[0] - distance, center[1] - distance, center[0] + distance, center[1] + distance)
 		rectangles.push(r)
 
 	}
 
-	r1 = get_intersection(rectangles[0], rectangles[1]);
-	r_final = get_intersection(rectangles[2], r1);
-	r_final.print_coords();
+	let r1 = get_intersection(rectangles[0], rectangles[1]);
+	let r_final = get_intersection(rectangles[2], r1);
+	//r_final.print_coords();
     
-    ans = [0, 0]
+    let ans = [0, 0]
     ans[0] = (r_final.xmin + r_final.xmax / 2);
     ans[1] = (r_final.ymin + r_final.ymax / 2);
-    return ans;
+    console.log(`Min-max = ${ans}`);
+	plotMinMax(centers, distances, ans);
+	return ans;
 }
+
+export {minMax, get_intersection, plotMinMax, Rectangle};
 
