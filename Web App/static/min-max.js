@@ -1,12 +1,3 @@
-setInterval(myTimer, 1000);
-
-function myTimer() 
-{
-    fetch('/getData')
-    .then(response => response.json())
-    .then(data => handleData(data))
-}
-
 class Rectangle {
 
 	constructor(xmin, ymin, xmax, ymax){
@@ -42,7 +33,7 @@ function get_intersection(r1, r2){
 
 }
 
-function min_max_calc(myData){
+function minMax(myData){
 
 	let centers = [[myData.x1, myData.y1], [myData.x2, myData.y2], [myData.x3, myData.y3]];
     let distances = [myData.d1, myData.d2, myData.d3];
@@ -69,18 +60,4 @@ function min_max_calc(myData){
     ans[1] = (r_final.ymin + r_final.ymax / 2);
     return ans;
 }
-
-function handleData(myData)
-{
-    if(myData.check === true)
-    {
-        document.getElementById('demo').innerHTML = myData.d1;
-        let posMinMax = min_max_calc(myData);
-    }
-    else 
-    {
-        document.getElementById().innerHTML = "Not enough values...Waiting...";
-    }
-}
-
 

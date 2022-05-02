@@ -11,11 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Overpass&family=Roboto+Mono:ital,wght@1,700&display=swap"
       rel="stylesheet"
     />
-    {% if algo == "trilateration" %}
-    <script src = "{{ url_for('static', filename='trilateration.js') }}"></script>
-    {% elif algo == "min-max" %}
-    <script src = "{{ url_for('static', filename='min-max.js') }}"></script>
-    {% endif %}
+    <script src = "{{ url_for('static', filename='main.js') }}"></script>
   </head>
 
   <body>
@@ -32,10 +28,14 @@
     <button type = "submit" name = "algo" value = "min-max" >Min-Max</button>
     </form>
     
-    <p id="demo">{{algo}} Initiating...</p>
-    <p id="dis1">d1 will be displayed here</p>
-    <p id="dis2">d2 will be displayed here</p>
-    <p id="dis3">d3 will be displayed here</p>e
+    
+    <p id="m1">1 will be displayed here</p>
+    <p id="m2">2 will be displayed here</p>
+    <p id="m3">3 will be displayed here</p>
+    <p id="m4">4 will be displayed here</p>
+    <p id="m5">5 will be displayed here</p>
+    <p id="m6">6 will be displayed here</p>
+
 
     <footer class="footer">made by abhigyan , rohan, abhishek, kartik</footer>
 

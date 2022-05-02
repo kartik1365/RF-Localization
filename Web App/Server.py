@@ -31,17 +31,12 @@ def queryNode():
 
 @app.route("/Localize", methods = ["GET", "POST"])
 def Localize():
-    global rssi_anchor1, rssi_anchor2, rssi_anchor3
-    print(rssi_anchor1)
-    print(rssi_anchor2)
-    print(rssi_anchor3)
 
-    if request.form:
-        algo = request.form["algo"]
-    else:
-        algo = "trilateration"
-
-    return render_template("localize.html", algo = algo)
+    # if request.form:
+    #     algo = request.form["algo"]
+    # else:
+    #     algo = "trilateration"
+    return render_template("localize.html")
 
 @app.route("/RSSI")
 def RSSI():
@@ -54,7 +49,7 @@ def getData():
     global pos_anchor1, pos_anchor2, pos_anchor3, dis_anchor1, dis_anchor2, dis_anchor3
     
     is_possibe = True
-    if len(rssi_anchor1) < 1 or len(rssi_anchor2) < 1 or len(rssi_anchor3) < 1:
+    if len(dis_anchor1) < 1 or len(dis_anchor2) < 1 or len(dis_anchor3) < 1:
         is_possible = False
   
     ptr = min(len(dis_anchor1), len(dis_anchor2), len(dis_anchor3)) - 1

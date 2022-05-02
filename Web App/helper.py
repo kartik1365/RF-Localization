@@ -3,16 +3,16 @@ import numpy as np
 a = -12.08
 b = 5.01
 
-pos_anchor1 = [1, 1]
-pos_anchor2 = [1, 1]
-pos_anchor3 = [1, 1]
+pos_anchor1 = [0, 0]
+pos_anchor2 = [0.5, 0.866]
+pos_anchor3 = [1, 0]
 
-rssi_anchor1 = []
-rssi_anchor2 = []
-rssi_anchor3 = []
-dis_anchor1 = []
-dis_anchor2 = []
-dis_anchor3 = []
+rssi_anchor1 = [-10, -10, -10]
+rssi_anchor2 = [-10, -10, -10]
+rssi_anchor3 = [-10, -10, -10]
+dis_anchor1 = [0.6614295124954737, 0.6614295124954737, 0.6614295124954737, 0.6614295124954737]
+dis_anchor2 = [0.433, 0.433, 0.433, 0.433]
+dis_anchor3 = [0.6614295124954737, 0.6614295124954737, 0.6614295124954737, 0.6614295124954737]
 counter = 0
 items = []
 

@@ -1,11 +1,3 @@
-setInterval(myTimer, 1000);
-
-function myTimer() {
-    fetch('/getData')
-        .then(response => response.json())
-        .then(data => handleData(data))
-}
-
 function getEucledianDistance(pt1, pt2) {
     return Math.sqrt(Math.pow(pt1[0] - pt2[0], 2) + Math.pow(pt1[1] - pt2[1], 2));
 }
@@ -17,7 +9,8 @@ function point_lies_on_circle(center, r, point) {
     return false
 }
 
-function getTrilateration(myData) {
+function trilateration(myData) {
+    
     //First we define the data as:
     let centers = [[myData.x1, myData.y1], [myData.x2, myData.y2], [myData.x3, myData.y3]];
     let distances = [myData.d1, myData.d2, myData.d3];
@@ -45,19 +38,6 @@ function getTrilateration(myData) {
     }
 
     return ans;
-
 }
 
-
-function handleData(myData) {
-    if (myData.check === true) {
-        
-        let pos_trilateration = getTrilateration(myData);
-        let pos_min_max = getMinMax(myData);
-    }
-    else {
-        document.getElementById().innerHTML = "Not enough values...Waiting...";
-    }
-}
-
-
+export {trilateration, getEucledianDistance, point_lies_on_circle};

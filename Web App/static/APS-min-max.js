@@ -1,17 +1,8 @@
-setInterval(myTimer, 1000);
-
-function myTimer() {
-    fetch('/getData')
-        .then(response => response.json())
-        .then(data => handleData(data))
-}
-
-
 function getEucledianDistance(pt1, pt2) {
     return Math.sqrt(Math.pow(pt1[0] - pt2[0], 2) + Math.pow(pt1[1] - pt2[1], 2));
 }
 
-function getAPS_MinMax() {
+function areaPartitionStrategyMinMax() {
     const centers = [[myData.x1, myData.y1], [myData.x2, myData.y2], [myData.x3, myData.y3]];
     const distances = [myData.d1, myData.d2, myData.d3];
 
@@ -79,16 +70,8 @@ function getAPS_MinMax() {
             P3 = temp2;
         }
     }
-    return C;
+    
+    let ans = C;
+    return ans;
 }
-
-function handleData(myData) {
-    if (myData.check === true) {
-        let posAPSMinMax = getAPS_MinMax(myData);
-    }
-    else {
-        document.getElementById().innerHTML = "Not enough values...Waiting...";
-    }
-}
-
 

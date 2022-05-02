@@ -1,12 +1,4 @@
-setInterval(myTimer, 1000);
-
-function myTimer() {
-    fetch('/getData')
-        .then(response => response.json())
-        .then(data => handleData(data))
-}
-
-function getLeastSquares(myData) {
+function leastSquares(myData) {
     x1 = myData.x1;
     y1 = myData.y1;
     x2 = myData.x2;
@@ -35,14 +27,4 @@ function getLeastSquares(myData) {
     
     return ans;
 }
-
-function handleData(myData) {
-    if (myData.check === true) {
-        let pos_leastSquares = getLeastSquares(myData);
-    }
-    else {
-        document.getElementById().innerHTML = "Not enough values...Waiting...";
-    }
-}
-
 
