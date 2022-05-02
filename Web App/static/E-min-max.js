@@ -17,7 +17,7 @@ function getManhattanDistance(pt1, pt2) {
 }
 
 
-function ExtendedMinMax(myData) {
+function getExtendedMinMax(myData) {
 
     const centers = [[myData.x1, myData.y1], [myData.x2, myData.y2], [myData.x3, myData.y3]];
     const distances = [myData.d1, myData.d2, myData.d3];
