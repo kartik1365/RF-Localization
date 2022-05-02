@@ -15,15 +15,30 @@ body{
     padding-right: 50px;
     
 }
+
+#m3 , #m4, #m5, #m1, #m2 { 
+    background-color:#3780cf;
+    min-height: 50vh;
+    padding-top: 10px;
+   
+}
 .navbar2{
     background-color:#25486d;
     display: flex;
-    justify-content:space-evenly;
-    font-size: 1.6rem;
+    justify-content:space-around;
+    font-size: 1.2rem;
     font-family: 'Lato', cursive;
     font-weight: 400;
     padding-left: 50px;
     padding-right: 50px;
+  
+    
+}
+
+.navbar2 > a {
+  
+    color: #78aadf;
+    padding-top: 10px;
     
 }
 
@@ -39,14 +54,20 @@ body{
     
 }
 
+/* .navbar2 > a:hover {
+    background-color:#25486d;
+    cursor: pointer;
+    
+    
+} */
+
 .navbar > a:hover {
     background-color:#25486d;
     cursor: pointer;
     border-radius: 10px;
     padding-left: 50px;
     padding-right: 50px;
-    font-size: 1.8rem;
-    
+    font-size: 1.8rem; 
 }
 
 .content{
