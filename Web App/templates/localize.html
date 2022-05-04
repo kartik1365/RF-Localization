@@ -30,21 +30,29 @@
     <a href = "#m5"><p type = "submit" name = "rssi" >Least Squares</p></a>
     </div> 
     
+    <div class="plots">
     <p id="m1">1 will be displayed here</p>
     <canvas id="plotTrilateration"></canvas>    
-    
-    
+    </div>
+
+    <div class="plots">
     <p id="m2">2 will be displayed here</p>
     <canvas id="plotMinMax"></canvas>    
-
+    </div>
+    
+    <div class="plots">
     <p id="m3">3 will be displayed here</p>
     <canvas id="plotExtendedMinMax"></canvas>    
+    </div>
 
+    <div class="plots">
     <p id="m4">4 will be displayed here</p>
     <canvas id="plotAPSMinMax"></canvas>    
+    </div>
 
+    <div class="plots">
     <p id="m5">5 will be displayed here</p>
-
+    </div>
     <footer class="footer">made by abhigyan , rohan, abhishek, kartik</footer>
 
     <script type = "module" src = "{{ url_for('static', filename='main.js') }}">

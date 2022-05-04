@@ -2,6 +2,9 @@ var PLOT_HEIGHT = 500, PLOT_WIDTH = 500;
 
 
 function plotTrilateration(centers, distances, ans) {
+
+    console.log("tricenter ", centers,"tridistance",  distances, "trianswer", ans )
+
     var c = document.getElementById("plotTrilateration");
     c.width = PLOT_WIDTH;
     c.height = PLOT_HEIGHT;

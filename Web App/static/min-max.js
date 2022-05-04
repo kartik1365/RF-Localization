@@ -15,9 +15,10 @@ class Rectangle {
 	}
 
 }
-
+console.log("helooooo")
 
 function plotMinMax(centers, distances, ans) {
+	console.log("mmcenter ", centers,"mmdistance",  distances, "mmanswer", ans )
     var c = document.getElementById("plotMinMax");
     c.width = PLOT_WIDTH;
     c.height = PLOT_HEIGHT;
@@ -25,8 +26,40 @@ function plotMinMax(centers, distances, ans) {
     var ctx = c.getContext("2d");
     ctx.transform(1, 0, 0, -1, c.width / 2, c.height / 2);
 
-	//
+	// anchor 1
+	ctx.beginPath();
+	// side = distances[]
+    ctx.rect(100*centers[0][0], 100* centers[0][1], 200*distances[0] ,200*distances[0]);
+	// x , y , width , height 
+    ctx.fillStyle = 'rgba(255, 0, 0, 0.3)';
+    ctx.fill();
+    ctx.stroke();
 
+	// anchor 2
+	ctx.beginPath();
+	// side = distances[]
+    ctx.rect(100*centers[1][0], 100* centers[1][1], 200*distances[1] ,200*distances[1]);
+	// x , y , width , height 
+    ctx.fillStyle = 'rgba(255, 0, 0, 0.3)';
+    ctx.fill();
+    ctx.stroke();
+
+	// anchor 3
+	ctx.beginPath();
+	// side = distances[]
+    ctx.rect(100*centers[2][0], 100* centers[2][1], 200*distances[2] ,200*distances[2]);
+	// x , y , width , height 
+    ctx.fillStyle = 'rgba(255, 0, 0, 0.3)';
+    ctx.fill();
+    ctx.stroke();
+
+	//actual point 
+	ctx.beginPath();
+    ctx.fillStyle = 'blue'
+    ctx.fillRect(100 * ans[0], 100 * ans[1], 5, 5);
+    ctx.lineWidth = 10;
+    ctx.strokeStyle = 'blue';
+    ctx.stroke();
 	//
 }
 
