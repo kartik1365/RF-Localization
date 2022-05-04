@@ -12,8 +12,7 @@ function leastSquares(myData) {
     let d2 = myData.d2;
     let d3 = myData.d3;
 
-    let a = x3, b = x1, c = x2, x = y3, y = y1, z = y2;
-
+    
 }
 
 export { leastSquares };

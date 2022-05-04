@@ -1,20 +1,20 @@
 var PLOT_HEIGHT = 500, PLOT_WIDTH = 500;
 
-// class Rectangle {
+class Rectangle {
 
-// 	constructor(xmin, ymin, xmax, ymax) {
-// 		this.xmin = xmin
-// 		this.ymin = ymin
-// 		this.xmax = xmax
-// 		this.ymax = ymax
-// 	}
+	constructor(xmin, ymin, xmax, ymax) {
+		this.xmin = xmin
+		this.ymin = ymin
+		this.xmax = xmax
+		this.ymax = ymax
+	}
 
-// 	print_coords() {
-// 		console.log("Left bottom is: ", this.xmin, ", ", this.ymin);
-// 		console.log("Right top is: ", this.xmax, ", ", this.ymax);
-// 	}
+	print_coords() {
+		console.log("Left bottom is: ", this.xmin, ", ", this.ymin);
+		console.log("Right top is: ", this.xmax, ", ", this.ymax);
+	}
 
-// }
+}
 
 function plotMinMax(centers, distances, ans) {
 
@@ -63,20 +63,20 @@ function plotMinMax(centers, distances, ans) {
 	//
 }
 
-// function get_intersection(r1, r2) {
+function get_intersection(r1, r2) {
 
-// 	let x1 = Math.max(r1.xmin, r2.xmin);
-// 	let y1 = Math.max(r1.ymin, r2.ymin);
-// 	let x2 = Math.min(r1.xmax, r2.xmax);
-// 	let y2 = Math.min(r1.ymax, r2.ymax);
+	let x1 = Math.max(r1.xmin, r2.xmin);
+	let y1 = Math.max(r1.ymin, r2.ymin);
+	let x2 = Math.min(r1.xmax, r2.xmax);
+	let y2 = Math.min(r1.ymax, r2.ymax);
 
-// 	console.assert(x1 <= x2);
-// 	console.assert(y1 <= y2);
+	console.assert(x1 <= x2);
+	console.assert(y1 <= y2);
 
-// 	let rect = new Rectangle(x1, y1, x2, y2);
-// 	return rect;
+	let rect = new Rectangle(x1, y1, x2, y2);
+	return rect;
 
-// }
+}
 
 function minMax(myData) {
 
