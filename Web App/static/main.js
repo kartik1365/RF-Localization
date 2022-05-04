@@ -23,7 +23,7 @@ function handleData(myData) {
         
         document.getElementById("m1").innerHTML = pos_trilateration;
         document.getElementById("m2").innerHTML = pos_minMax;
-        document.getElementById("m3").innerHTML = pos_eMinMax;
+        document.getElementById("m3").innerHTML = pos_eMinMax[3];
         document.getElementById("m4").innerHTML = pos_apsMinMax;
         // document.getElementById("m5").innerHTML = pos_leastSquares;
     }
