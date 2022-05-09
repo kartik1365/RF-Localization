@@ -46,14 +46,13 @@ def RSSI():
 @app.route("/getData", methods = ["GET"])
 def getData():
     
-    global pos_anchor1, pos_anchor2, pos_anchor3, dis_anchor1, dis_anchor2, dis_anchor3
+    global pos_anchor1, pos_anchor2, pos_anchor3, dis_anchor1, dis_anchor2, dis_anchor3, counter
     
     is_possibe = True
     if len(dis_anchor1) < 1 or len(dis_anchor2) < 1 or len(dis_anchor3) < 1:
         is_possible = False
   
-    ptr = min(len(dis_anchor1), len(dis_anchor2), len(dis_anchor3)) - 1
-
+    ptr = min(len(dis_anchor1), len(dis_anchor2), len(dis_anchor3)) - 1 
     dis1 = dis_anchor1[ptr]
     dis2 = dis_anchor2[ptr]
     dis3 = dis_anchor3[ptr]

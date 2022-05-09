@@ -14,7 +14,7 @@ function myTimer() {
 
 function handleData(myData) {
     if (myData.check === true) {
-
+        console.log(myData)
         let pos_trilateration = Trilateration.trilateration(myData);
         let pos_minMax = MinMax.minMax(myData);
         let pos_eMinMax = ExtendedMinMax.extendedMinMax(myData);
