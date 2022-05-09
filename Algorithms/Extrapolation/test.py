@@ -1,5 +1,6 @@
 # from cmath import log
 import matplotlib.pyplot as plt
+import pandas as pd
 import numpy as np
 from typing import List
 
@@ -69,25 +70,30 @@ class Inverse_sq_reg():
 
 		return (self.a * np.log(x)) + self.b
 
+def read_input_file(file_name):
+	df = pd.read_csv(file_name)
+	return df["x"], df["y"]
+
 def main():
 	# Generate n = 100 training points (x, y). y = a*logx + b, where a = 2 and b = 1, add some noise to it
-	n = 100
+	# n = 100
 	start = 0.5
 	end = 1
-	x = np.linspace(start, end, n)
+	x, y_t = read_input_file("input3.csv")
+	n = len(x)
 	a = 2
 	b = 1
-	y = a*np.log(x) + b
-	y_t = y + np.random.normal(0, 0.5, n)
+	# y = a*np.log(x) + b
+	# y_t = y + np.random.normal(0, 0.5, n)
 	# Train the data 
 	model = Inverse_sq_reg()
 	model.train(x, y_t)
 	y_hat = model.predict(x)
 	for i in range(n):
-		print(f" Actual : {y[i]} Predicted : {y_hat[i]}")
+		print(f" Actual : {y_t[i]} Predicted : {y_hat[i]}")
 	# Plot the final and initial plot
 	fig, ax = plt.subplots()
-	ax.plot(x, y, label = "Clean")
+	# ax.plot(x, y, label = "Clean")
 	ax.plot(x, y_t, label = "Noisy")
 	ax.plot(x, y_hat, label = "Predicted")
 	ax.grid()
